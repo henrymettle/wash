@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nm/block/toast_message.dart';
+import 'package:nm/screens/cleanupservices.dart';
 import 'package:nm/screens/home_page.dart';
 import 'package:nm/screens/laundry_home.dart';
 import 'package:nm/screens/sign_in.dart';
@@ -85,6 +86,20 @@ class MainDrawer extends StatelessWidget {
             color: Colors.black45,
           ),
           title: Text("Washing Bays"),
+        ),
+
+        ListTile(
+          onTap: () {
+            displayToastMessage("You have entered Cleanupservices", context);
+            // Washing
+            Navigator.push( context,
+                MaterialPageRoute(builder: (_) => HomePageclean()));
+          },
+          leading: Icon(
+            Icons.wash_rounded,
+            color: Colors.black45,
+          ),
+          title: Text("Cleanupservices"),
         ),
 
 

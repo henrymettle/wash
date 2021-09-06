@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:nm/models/cleanupservices.dart';
 import 'package:nm/models/laundry_model.dart';
 import 'package:nm/models/washing_but.dart';
 
@@ -51,5 +52,15 @@ class FirestoreService {
         .map((snapshot) => snapshot
             .map((doc) => LaundryData.fromFirestore(doc.data()))
             .toList());
+  }
+
+  Stream<List<CleanupData>> fetchUpcomingCleanup() {
+    return _db
+        .collection('cleanup')
+        .snapshots()
+        .map((query) => query.docs)
+        .map((snapshot) => snapshot
+        .map((doc) => CleanupData.fromFirestore(doc.data()))
+        .toList());
   }
 }

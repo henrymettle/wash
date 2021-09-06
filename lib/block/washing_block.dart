@@ -1,3 +1,4 @@
+import 'package:nm/models/cleanupservices.dart';
 import 'package:nm/models/laundry_model.dart';
 import 'package:nm/models/washing_but.dart';
 import 'package:nm/servers/firestore_service.dart';
@@ -7,6 +8,7 @@ class WashingBlock{
 
   Stream<List<WashingData>> get fetchUpcomingWashingBay => db.fetchUpcomingWashingBay();
   Stream<List<LaundryData>> get fetchUpcomingLaundry => db.fetchUpcomingLaundry();
+  Stream<List<CleanupData>> get fetchUpcomingCleanup => db.fetchUpcomingCleanup();
 
   dispose(){
     
